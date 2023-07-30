@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <title>Student Login</title>
+    <style>
+        .C2{
+            height: 500px;
+            width: 541px;
+            margin-left: 500px;
+            margin-right: 200px;
+            margin-top: 90px;
+            background-color: #79c6c1;
+            display: block;
+            text-align: center;
+            align-items: center;
+        }
+        .I1{
+            width: 250px;
+            height: 20px;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin: 20px 20px;
+            border: none;
+            font-family: 'Montserrat';
+        }
+        .B1{
+            background-color: #D4ADFC;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin: 30px 20px;
+            border: none;
+            font-family: 'Montserrat';
+        }
+        .B1:hover{
+            background-color: #5C469C;
+            color: white;
+        }
+        .C2 p{
+            padding: 10px 20px;
+            margin: 30px;
+            font-size: 40px;
+            font-weight: bolder;
+            margin-top: 60px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="background-color: white;  font-family: 'Montserrat'; ">
+    <div class="container">
+        <div class="C2"> 
+            <p>Login  Form</p>
+            <form action="loginAction.php" method="POST">
+                <input type="text" name="username" placeholder="Username" class="I1" required>
+                <input type="password" name="pass" placeholder="Password" class="I1" id="myInput" required> 
+                <br>
+                <input type="checkbox" onclick="myFunction()">Show Password
+                <br>
+                <input type="submit" value="Sign In" name="login" class="B1">
+                <a href="register.html">
+                    <input type="button" value="Sign Up" class="B1">
+                </a>
+            </form>
+        </div>
+    </div>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+              x.type = "text";
+            } else {
+              x.type = "password";
+            }
+          }
+    </script>
+</body>
+</html>
