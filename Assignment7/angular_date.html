@@ -1,0 +1,30 @@
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <body>
+
+        <div ng-app="myApp">
+            <current-date-time></current-date-time>
+          </div>
+
+          
+        <script>
+            // Create a new AngularJS module
+            var app = angular.module('myApp', []);
+          
+            // Define a custom directive to display current date and time
+            app.directive('currentDateTime', function($interval) {
+              return {
+                restrict: 'E',
+                template: '<div>{{currentDateTime}}</div>',
+                link: function(scope) {
+                  // Update the current date and time every second
+                  $interval(function() {
+                    scope.currentDateTime = new Date().toLocaleString();
+                  }, 1000);
+                }
+              };
+            });
+          </script>
+          
+    </body>
+</html>

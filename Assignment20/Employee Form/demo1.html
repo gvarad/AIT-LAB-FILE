@@ -1,0 +1,158 @@
+<!-- <html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+    </script>
+</head>
+<body ng-app="myapp">
+    <div ng-controller = "FilterCtrl as c">
+        <div>
+            UpperCase:{{c.name|uppercase}}
+        </div>
+        <div>
+            lowercase:{{c.name | lowercase}}
+        </div>
+        <div>
+            number:{{c.number|number}}
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module("myapp",[])
+        app.controller("FilterCtrl",function(){
+            this.name = "varad";
+            this.number=12;
+        })
+    </script>
+</body> -->
+
+<!-- Create a login form, both username & password fields are mandatory,
+after entering the values transfer user control to next web page showing
+message as “You have login successfully”. (Use ng-href & ng-required). -->
+
+<html ng-app="loginApp">
+
+<head>
+  <title>Login Form</title>
+</head>
+
+<body ng-controller="loginController">
+  <h1>Login</h1>
+  <form ng-submit="login()" name="loginForm">
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" ng-model="username" ng-required="true" />
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password id="password" ng-model="password" ng-required="true" />
+    </div>
+    <div>
+      <button type="submit" ng-disabled="loginForm.$invalid">Login</button>
+    </div>
+  </form>
+  <div ng-show="loggedIn">
+    <h2>You have logged in successfully!</h2>
+    
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script>
+    angular.module('loginApp', [])
+      .controller('loginController', function($scope, $location) {
+        $scope.loggedIn = false;
+
+        $scope.login = function() {
+          // Here, you can perform the actual login verification, e.g., API call or local validation.
+          // For simplicity, we'll just check if the username and password are not empty.
+          if ($scope.username && $scope.password) {
+            // Login successful, redirect to the next page.
+            $scope.loggedIn = true;
+            $location.path('/success'); // Assuming this is the URL of the success page.
+          }
+        };
+      });
+  </script>
+</body>
+
+</html> 
+
+<!-- Write a PHP script to design a form for exam registration. Insert 5 records
+in database and display all the inserted records on new page. -->
+
+<html>
+    <body style="background-color: white;  font-family: 'Montserrat'; ">
+        <div class="container">
+            <div class="D1">
+                <p class="P1">Registration Form</p>
+                <hr>
+                <form action="registerAction.php" method="post" style="margin: 25px;">
+                    <div class="FD1">
+                        <input type="text" name="firstname" placeholder="First Name" class="I1" required>
+                        <input type="text" name="lastname" placeholder="Last Name" class="I1" required>
+                    </div>
+                    <div class="FD1">
+                        <input type="number" name="studid" placeholder="Student Id" class="I1" required>
+                        <input type="number" name="mobno" placeholder="Mobile No" class="I1" required>
+                    </div>
+                    <div class="FD1">
+                        <input type="text" name="username" placeholder="Username" class="I1" required>
+                        <div class="FD2">
+                            <input type="password" name="pass" placeholder="Password" class="I1" id="myInput" required>
+                            <div class="FD1">
+                                <input type="checkbox" onclick="myFunction()">Show Password
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <input type="submit" value="Sign Up" class="B1">
+                    <a href="login.html">
+                        <input type="button" value="Sign In" class="B1">
+                    </a>
+                </form>
+            </div>
+        </div>
+</html>
+
+<!-- <?php
+    session_start();
+    $fName = $_REQUEST['firstname'];
+    $lName = $_REQUEST['lastname'];
+    $studId = $_REQUEST['studid'];
+    $mobNo = $_REQUEST['mobno'];
+    $uName = $_REQUEST['username'];
+    $password = $_REQUEST['pass'];
+
+    $hostname = 'localhost'; 
+    $username = 'root'; 
+    $userpass = ''; 
+    $dbname = 'test'; 
+
+    $conn = mysqli_connect($hostname,$username,$userpass,$dbname);
+    $sql = "insert into student(fName,lName,studentId,mobNo,userName,pass) 
+            VALUES ('$fName','$lName','$studId','$mobNo','$uName','$password')";
+    $result = mysqli_query($conn,$sql);
+    if(!$result){
+        echo"Error";
+    }
+    else
+    {
+        echo"Data Inserted successfully";
+    }
+     
+?> -->
+
+<!-- <canvas id="myCanvas" width="200" height="150"></canvas>
+
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    ctx.beginPath();
+    ctx.moveTo(100, 20);
+    ctx.lineTo(40, 140);
+    ctx.lineTo(160, 140);
+    ctx.closePath();
+
+    ctx.fillStyle = "#FF0000";
+    ctx.fill();
+</script>     -->
